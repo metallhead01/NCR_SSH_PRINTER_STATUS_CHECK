@@ -14,22 +14,24 @@ counter = 0
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-print("Choice mode:\n\t1. 5 seconds\n\t2. 1 minute\n\t3. 30 minutes\n\t4. 60 minutes")
+print("Choice mode:\n\t1. 01 second\n\t2. 05 seconds\n\t3. 01 minute\n\t4. 30 minutes\n\t5. 60 minutes")
 
 delay = None
 while delay is None:
     choice = input()
 
     if choice == "1":
+        delay = 1
+    if choice == "2":
         delay = 5
-    elif choice == "2":
-        delay = 30
     elif choice == "3":
-        delay = 1800
+        delay = 30
     elif choice == "4":
+        delay = 1800
+    elif choice == "5":
         delay = 3600
     else:
-        print("Ты чо цифру от 1 до 4 ввести не можешь?!")
+        print("Ты чо цифру от 1 до 5 ввести не можешь?!")
 
 # Подключение
 client.connect(hostname=host, username=user, password=secret, port=port)
