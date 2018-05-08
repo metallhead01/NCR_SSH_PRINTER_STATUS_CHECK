@@ -22,7 +22,7 @@ while delay is None:
 
     if choice == "1":
         delay = 1
-    if choice == "2":
+    elif choice == "2":
         delay = 5
     elif choice == "3":
         delay = 30
@@ -53,7 +53,8 @@ while answer != -1:
 
     answer = data.find(b'rndis0')
     counter = counter + 1
-    print("Все ок. Количество подключений: " + str(counter))
+    if answer != -1:
+        print("Все ок. Количество подключений: " + str(counter))
 
 
 
